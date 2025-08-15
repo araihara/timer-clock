@@ -1,0 +1,180 @@
+/* 全体的なスタイル */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1c1c1e;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #3c3c3e;
+}
+
+/* タブ */
+.tab-container {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.tab-link {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #555;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-link.active {
+    color: #007aff;
+    border-bottom: 3px solid #007aff;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ディスプレイ */
+.timer-display, .stopwatch-display {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin: 2rem 0;
+    font-family: 'Menlo', 'Monaco', monospace;
+}
+
+/* 入力欄 */
+.timer-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.input-group input {
+    width: 60px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* コントロールボタン */
+.timer-controls, .stopwatch-controls {
+    margin-bottom: 1.5rem;
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    margin: 0 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#start-timer, #start-stopwatch {
+    background-color: #34c759; /* Green */
+    color: white;
+}
+
+#stop-timer, #pause-stopwatch {
+    background-color: #ff3b30; /* Red */
+    color: white;
+}
+
+#reset-timer, #reset-stopwatch {
+    background-color: #ff9500; /* Orange */
+    color: white;
+}
+
+/* 拡張モード */
+.advanced-mode {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+#advanced-buttons button {
+    background-color: #007aff; /* Blue */
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .timer-display, .stopwatch-display {
+        font-size: 2.5rem;
+    }
+
+    .timer-inputs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    button {
+        width: 100px;
+        margin-bottom: 0.5rem;
+    }
+}
