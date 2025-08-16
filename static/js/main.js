@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startTimerBtn = document.getElementById('start-timer');
     const stopTimerBtn = document.getElementById('stop-timer');
     const resetTimerBtn = document.getElementById('reset-timer');
+    const stopSoundBtn = document.getElementById('stop-sound');
 
     let timerInterval = null;
     let totalSeconds = 0;
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(timerInterval);
                 timerInterval = null;
                 alarmSound.play().catch(e => console.error("Alarm playback failed:", e));
+                stopSoundBtn.classList.remove('hidden');
             }
         }, 1000);
     }
@@ -80,8 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
         timerInterval = null;
     }
 
+    function stopAlarm() {
+        alarmSound.pause();
+        alarmSound.currentTime = 0;
+        stopSoundBtn.classList.add('hidden');
+    }
+
     function resetTimer() {
         stopTimer();
+        stopAlarm();
         hoursInput.value = 0;
         minutesInput.value = 0;
         secondsInput.value = 0;
@@ -92,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimerBtn.addEventListener('click', startTimer);
     stopTimerBtn.addEventListener('click', stopTimer);
     resetTimerBtn.addEventListener('click', resetTimer);
+    stopSoundBtn.addEventListener('click', stopAlarm);
 
     // 入力値が変更されたらディスプレイにも反映させる（任意）
     [hoursInput, minutesInput, secondsInput].forEach(input => {
