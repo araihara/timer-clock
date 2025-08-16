@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.tab-link').click();
 
     // --- タイマー機能 ---
+    const alarmSound = new Audio('https://drive.google.com/uc?export=download&id=1UbX2R-o2lJKoEFrXsrh6om_nsVUYhDd_');
+
     const timerHours = document.getElementById('timer-hours');
     const timerMinutes = document.getElementById('timer-minutes');
     const timerSeconds = document.getElementById('timer-seconds');
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (totalSeconds <= 0) {
                 clearInterval(timerInterval);
                 timerInterval = null;
-                alert('タイマーが終了しました！');
+                alarmSound.play();
             }
         }, 1000);
     }
