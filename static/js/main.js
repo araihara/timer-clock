@@ -18,9 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.tab-link').click();
 
     // --- タイマー機能 ---
-    const alarmSound = new Audio('https://drive.google.com/uc?export=download&id=1UbX2R-o2lJKoEFrXsrh6om_nsVUYhDd_');
-    let isAudioUnlocked = false;
-
     const timerHours = document.getElementById('timer-hours');
     const timerMinutes = document.getElementById('timer-minutes');
     const timerSeconds = document.getElementById('timer-seconds');
@@ -49,16 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function startTimer() {
         if (timerInterval) return; // 既に開始している場合は何もしない
 
-        // 最初のクリックでオーディオをアンロックする
-        if (!isAudioUnlocked) {
-            alarmSound.volume = 0; // 聞こえないように音量を0にする
-            alarmSound.play().catch(e => console.error("Audio unlock failed:", e));
-            alarmSound.pause();
-            alarmSound.volume = 1; // 音量を元に戻す
-            isAudioUnlocked = true;
-            console.log("Audio unlocked by user gesture.");
-        }
-
         totalSeconds = parseInt(hoursInput.value) * 3600 + parseInt(minutesInput.value) * 60 + parseInt(secondsInput.value);
 
         if (totalSeconds <= 0) return;
@@ -70,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (totalSeconds <= 0) {
                 clearInterval(timerInterval);
                 timerInterval = null;
-                alarmSound.play().catch(e => console.error("Alarm playback failed:", e));
+                alert('タイマーが終了しました！');
             }
         }, 1000);
     }
