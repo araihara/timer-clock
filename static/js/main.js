@@ -17,24 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 初期状態で最初のタブを開く
     document.querySelector('.tab-link').click();
 
-    // --- 設定機能 ---
-    const fontSizeSlider = document.getElementById('font-size-slider');
-    const timerDisplay = document.querySelector('.timer-display');
-    const stopwatchDisplay = document.querySelector('.stopwatch-display');
-
-    function updateFontSize() {
-        const size = fontSizeSlider.value;
-        // The value from the slider will be used as a base for vw units
-        timerDisplay.style.fontSize = `${size}vw`;
-        // Stopwatch has more characters, so we make it slightly smaller
-        stopwatchDisplay.style.fontSize = `${size * 0.85}vw`;
-    }
-
-    fontSizeSlider.addEventListener('input', updateFontSize);
-    // Set initial size
-    updateFontSize();
-
-
     // --- タイマー機能 ---
     const timerHours = document.getElementById('timer-hours');
     const timerMinutes = document.getElementById('timer-minutes');
