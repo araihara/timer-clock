@@ -30,12 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const stopTimerBtn = document.getElementById('stop-timer');
     const resetTimerBtn = document.getElementById('reset-timer');
 
-    const advancedToggle = document.getElementById('advanced-toggle');
-    const advancedButtons = document.getElementById('advanced-buttons');
-    const add1MinBtn = document.getElementById('add-1-min');
-    const add3MinBtn = document.getElementById('add-3-min');
-    const add5MinBtn = document.getElementById('add-5-min');
-
     let timerInterval = null;
     let totalSeconds = 0;
 
@@ -82,23 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTimerDisplay();
     }
 
-    function addTime(minutes) {
-        let currentMinutes = parseInt(minutesInput.value);
-        currentMinutes += minutes;
-        minutesInput.value = Math.min(59, currentMinutes); // 分の上限を59とする
-    }
-
     startTimerBtn.addEventListener('click', startTimer);
     stopTimerBtn.addEventListener('click', stopTimer);
     resetTimerBtn.addEventListener('click', resetTimer);
-
-    advancedToggle.addEventListener('change', () => {
-        advancedButtons.classList.toggle('hidden', !advancedToggle.checked);
-    });
-
-    add1MinBtn.addEventListener('click', () => addTime(1));
-    add3MinBtn.addEventListener('click', () => addTime(3));
-    add5MinBtn.addEventListener('click', () => addTime(5));
 
     // 入力値が変更されたらディスプレイにも反映させる（任意）
     [hoursInput, minutesInput, secondsInput].forEach(input => {

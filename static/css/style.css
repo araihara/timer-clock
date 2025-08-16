@@ -152,31 +152,7 @@ button:hover {
     color: white;
 }
 
-/* 拡張モード */
-.advanced-mode {
-    padding: 0.4rem 0.6rem;
-    border-radius: 8px;
-    background: #f0f2f5;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.advanced-mode label {
-    font-size: 0.9rem;
-}
-
-#advanced-buttons {
-    display: flex;
-    gap: 0.3rem;
-}
-
-#advanced-buttons button {
-    background-color: #007aff; /* Blue */
-    color: white;
-    padding: 0.4rem 0.6rem; /* Smaller padding */
-    font-size: 0.8rem;
-}
+/* 拡張モードのスタイルは削除されました */
 
 .hidden {
     display: none;
